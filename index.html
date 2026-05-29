@@ -663,7 +663,25 @@
             </p>
           </div>
         </div>
-        <form action="" method="post">
+        <div
+          class="my-alert bg-opacity-100 flex hidden w-full items-center justify-between rounded-lg border border-green-300 bg-green-100 px-4 py-3 text-green-800 lg:mx-auto lg:w-2/3"
+          role="alert"
+        >
+          <div>
+            <strong class="font-semibold">Terima kasih!</strong>
+            <span>Pesan anda sudah kami terima.</span>
+          </div>
+
+          <button
+            type="button"
+            class="ml-4 cursor-pointer text-green-700 hover:text-green-900"
+            onclick="this.parentElement.classList.add('hidden')"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+        <form name="fredo-contact-form">
           <div class="w-full lg:mx-auto lg:w-2/3">
             <div class="mb-8 w-full px-4">
               <label for="name" class="text-primary text-base font-bold"
@@ -673,6 +691,7 @@
                 type="text"
                 id="name"
                 class="text-dark focus:ring-primary focus:border-primary w-full rounded-md bg-slate-200 p-3 focus:ring-1 focus:outline-none"
+                name="nama"
               />
             </div>
             <div class="mb-8 w-full px-4">
@@ -683,6 +702,7 @@
                 type="email"
                 id="email"
                 class="text-dark focus:ring-primary focus:border-primary w-full rounded-md bg-slate-200 p-3 focus:ring-1 focus:outline-none"
+                name="email"
               />
             </div>
             <div class="mb-8 w-full px-4">
@@ -692,13 +712,42 @@
               <textarea
                 id="message"
                 class="text-dark focus:ring-primary focus:border-primary h-32 w-full rounded-md bg-slate-200 p-3 focus:ring-1 focus:outline-none"
+                name="pesan"
               ></textarea>
             </div>
             <div class="w-full px-4">
               <button
-                class="bg-primary w-full rounded-full px-8 py-3 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
+                class="bg-primary btn-kirim w-full rounded-full px-8 py-3 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg"
               >
                 Kirim
+              </button>
+              <button
+                class="btn-loading bg-primary flex hidden w-full items-center justify-center rounded-full px-8 py-3 text-base font-semibold text-white hover:shadow-lg disabled:opacity-80"
+                type="button"
+                disabled
+              >
+                <svg
+                  class="mr-2 h-5 w-5 animate-spin text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+
+                Loading...
               </button>
             </div>
           </div>

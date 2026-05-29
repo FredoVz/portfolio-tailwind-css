@@ -7,6 +7,11 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-green-100: oklch(96.2% 0.044 156.743);
+    --color-green-300: oklch(87.1% 0.15 154.449);
+    --color-green-700: oklch(52.7% 0.154 150.069);
+    --color-green-800: oklch(44.8% 0.119 151.328);
+    --color-green-900: oklch(39.3% 0.095 152.535);
     --color-teal-500: oklch(70.4% 0.14 182.503);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-pink-500: oklch(65.6% 0.241 354.308);
@@ -47,6 +52,7 @@
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animate-spin: spin 1s linear infinite;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --blur-sm: 8px;
     --default-transition-duration: 150ms;
@@ -322,6 +328,9 @@
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
+  .ml-4 {
+    margin-left: calc(var(--spacing) * 4);
+  }
   .block {
     display: block;
   }
@@ -395,6 +404,9 @@
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
+  .animate-spin {
+    animation: var(--animate-spin);
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -455,6 +467,9 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 2px;
   }
+  .border-green-300 {
+    border-color: var(--color-green-300);
+  }
   .border-slate-300 {
     border-color: var(--color-slate-300);
   }
@@ -466,6 +481,9 @@
   }
   .bg-dark {
     background-color: #0f172a;
+  }
+  .bg-green-100 {
+    background-color: var(--color-green-100);
   }
   .bg-primary {
     background-color: #14b8a6;
@@ -602,6 +620,12 @@
   .text-dark {
     color: #0f172a;
   }
+  .text-green-700 {
+    color: var(--color-green-700);
+  }
+  .text-green-800 {
+    color: var(--color-green-800);
+  }
   .text-pink-500 {
     color: var(--color-pink-500);
   }
@@ -626,8 +650,14 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .opacity-25 {
+    opacity: 25%;
+  }
   .opacity-60 {
     opacity: 60%;
+  }
+  .opacity-75 {
+    opacity: 75%;
   }
   .shadow-lg {
     --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
@@ -683,6 +713,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: #14b8a6;
+      }
+    }
+  }
+  .hover\:text-green-900 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-green-900);
       }
     }
   }
@@ -750,6 +787,11 @@
     &:focus {
       --tw-outline-style: none;
       outline-style: none;
+    }
+  }
+  .disabled\:opacity-80 {
+    &:disabled {
+      opacity: 80%;
     }
   }
   .sm\:text-4xl {
@@ -1234,6 +1276,11 @@ body {
 @property --tw-backdrop-sepia {
   syntax: "*";
   inherits: false;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes pulse {
   50% {
